@@ -39,3 +39,5 @@ router.post("/login", (req, res) => {
     res.send("Invalid login credentials");
   }
 })
+
+module.exports = router;
