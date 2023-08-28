@@ -1,5 +1,5 @@
 INSERT INTO
-  items (name, price, image_url, user_id)
+  cars (name, price, image_url, user_id)
 VALUES
   (
     '2019 Toyota Corolla',
