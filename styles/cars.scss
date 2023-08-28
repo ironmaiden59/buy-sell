@@ -1,0 +1,71 @@
+/* Base styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f6f6f6;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h2 {
+  color: #2c3e50;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 10px;
+}
+
+/* Price Filter styling */
+label {
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+
+#priceFilter {
+  width: 60%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#priceLabel {
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 1.2em;
+}
+
+/* Cars Listing styling */
+.car-box {
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Center items vertically */
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  width: 450px; /* Adjust width as necessary */
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.car-image {
+  flex: 1; /* This will allow the image to take up half the space of the container */
+  max-width: 50%; /* Ensure the image doesn't grow too big */
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px; /* Space between the image and the details */
+}
+
+.car-details {
+  flex: 1; /* This will allow the details to take up the other half of the space */
+  text-align: left; /* Align the details to the left */
+}
+
+.car-model {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.car-year, .car-price {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
