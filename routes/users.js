@@ -11,33 +11,31 @@ const path = require('path');
 
 const user = true;
 
-router.get("/", (req, res) => {
+// router.get("/", (req, res) => {
 
-  if (user) {
-    // If user is logged in, show the post-login page
-    res.redirect("/users/dashboard");
-  } else {
-    // If user is not logged in, show the main page or login page
-    res.redirect("/");
-  }
-});
-
-router.get("/dashboard", (req, res) => {
-  res.send("This is the post login page.");
-});
+//   if (user) {
+//     // If user is logged in, show the post-login page
+//     res.redirect("/users/dashboard");
+//   } else {
+//     // If user is not logged in, show the main page or login page
+//     res.redirect("/");
+//   }
+// });
 
 
-router.post("/login", (req, res) => {
-  const { username, password } = req.body;
 
-  // Sample logic (use your actual logic for authentication here)
-  if (isValidUser(username, password)) {
-    // assuming user authentication is successful
-    // Ideally, you would also set a session or token here to keep the user logged in
-    res.redirect("/dashboard");
-  } else {
-    res.send("Invalid login credentials");
-  }
-})
+
+// router.post("/login", (req, res) => {
+//   const { username, password } = req.body;
+
+//   // Sample logic (use your actual logic for authentication here)
+//   if (isValidUser(username, password)) {
+//     // assuming user authentication is successful
+//     // Ideally, you would also set a session or token here to keep the user logged in
+//     res.redirect("/login");
+//   } else {
+//     res.send("Invalid login credentials");
+//   }
+// })
 
 module.exports = router;

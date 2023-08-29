@@ -3,7 +3,18 @@ const router  = express.Router();
 const db = require('../db/connection');
 
 router.get('/', (req, res) => {
-  res.render("dashboard")
+  res.render("login");
+});
+
+// POST endpoint for /login
+router.post('/', (req, res) => {
+  const { email } = req.body; // Extract the email from the request body
+
+  // Set the cookie named 'username' with the email value
+  res.cookie('username', email);
+
+  // Redirect to the home page
+  res.redirect('/');
 });
 
 module.exports = router;
