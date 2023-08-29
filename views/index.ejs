@@ -11,16 +11,15 @@
 
 <body>
   <%- include('partials/_header') %>
+    <div class="sort">
+      <div class="col-md-12"></div>
+      <% if (sortOrder==='ASC' ) { %>
+        <a class="btn-primary" href="./?sortOrder=DESC">Sort by Price</a>
+        <% } else { %>
+          <a class="btn-primary" href="./?sortOrder=ASC">Sort by Price</a>
+          <% } %>
+    </div>
     <div class="container mt-5">
-
-      <!-- Price Filter -->
-      <div class="my-3">
-        <label for="priceFilter">Filter by Price: </label>
-        <input type="range" id="priceFilter" min="0" max="100000" step="500" value="100000" />
-        <span id="priceLabel">$100,000</span>
-      </div>
-
-      <!-- Car Cards -->
       <div class="row">
         <% cars.forEach(function(car) { %>
           <div class="col-md-4 mb-3">
@@ -32,29 +31,11 @@
                 </h5>
                 <p class="card-text"><strong>Price: </strong>$<%= car.price %>
                 </p>
+                <button class="btn btn-primary">Message Owner</button>
               </div>
             </div>
           </div>
           <% }) %>
-
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-              // Filter cars based on price
-              $(document).ready(function() {
-                $('#priceFilter').on('input', function() {
-                  let maxPrice = $(this).val();
-                  $('#priceLabel').text('$' + maxPrice);
-
-                  $('.card').each(function() {
-                    if ($(this).data('price') > maxPrice) {
-                      $(this).hide();
-                    } else {
-                      $(this).show();
-                    }
-                  });
-                });
-              });
-            </script>
 </body>
 
 </html>

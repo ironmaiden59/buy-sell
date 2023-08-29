@@ -7,9 +7,15 @@ const carQueries = require('../db/queries/cars');
 // Separate them into separate routes files (see above).
 
 router.get('/', (req, res) => {
+  console.log(req.query.sortOrder);
   carQueries.getCars()
     .then(cars => {
-      res.render('index', { cars });
+      let sortedCars = cars
+      if (req.query.sortOrder === 'ASC') {
+        sortedCars = cars.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      }
+      console.log(cars);
+      res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder });
     })
     .catch(err => {
       res
