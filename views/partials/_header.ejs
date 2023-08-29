@@ -18,13 +18,29 @@
       </div>
 
       <!-- Right section -->
-      <div class="navbar-section-right d-flex">
-        <ul class="navbar-nav">
+<div class="navbar-section-right d-flex">
+  <ul class="navbar-nav">
+      <% if(username && username !== '') { %>
           <li class="nav-item">
             <a class="nav-link" href="/login"><strong>Login</strong></a>
           </li>
         </ul>
       </div>
+              <span class="navbar-text mr-3">Welcome, <%= username %></span>
+          </li>
+          <li class="nav-item">
+              <form action="/logout" method="post">
+                  <button type="submit" class="btn btn-link">Logout</button>
+              </form>
+          </li>
+      <% } else { %>
+          <!-- Display these options only if the user is not logged in -->
+          <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+          </li>
+      <% } %>
+  </ul>
+</div>
 
     </div>
 
