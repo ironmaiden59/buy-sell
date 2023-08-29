@@ -38,6 +38,8 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
+const carsRoutes = require('./routes/cars');
+const homePageRoute = require('./routes/index');
 const logoutRoutes = require('./routes/logout');
 const dashboardRoutes = require('./routes/dashboard');
 
@@ -48,6 +50,9 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
+app.use('/cars', carsRoutes);
+app.use('/', homePageRoute);
+// Note: mount other resources here, using the same pattern above
 app.use('/logout', logoutRoutes);
 app.use('/dashboard', dashboardRoutes);
 // Note: mount other resources here, using the same pattern above
@@ -60,7 +65,6 @@ app.get('/', (req, res) => {
   const username = req.cookies.username || '';
   res.render('index', { username: username });
 });
-
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
