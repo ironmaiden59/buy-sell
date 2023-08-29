@@ -14,8 +14,9 @@ router.get('/', (req, res) => {
       if (req.query.sortOrder === 'ASC') {
         sortedCars = cars.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
       }
+      const username = req.cookies.username || '';
       console.log(cars);
-      res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder });
+      res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder, username });
     })
     .catch(err => {
       res

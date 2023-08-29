@@ -61,10 +61,6 @@ app.use('/dashboard', dashboardRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get('/', (req, res) => {
-  const username = req.cookies.username || '';
-  res.render('index', { username: username });
-});
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
