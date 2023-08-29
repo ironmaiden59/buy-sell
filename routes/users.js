@@ -11,33 +11,14 @@ const path = require('path');
 
 const user = true;
 
-router.get("/", (req, res) => {
-
-  if (user) {
-    // If user is logged in, show the post-login page
-    res.redirect("/users/dashboard");
-  } else {
-    // If user is not logged in, show the main page or login page
-    res.redirect("/");
-  }
-});
-
-router.get("/dashboard", (req, res) => {
-  res.send("This is the post login page.");
+router.get('/', (req, res) => {
+  const username = req.cookies.username || '';
+  res.render('/', { username: username });
 });
 
 
-router.post("/login", (req, res) => {
-  const { username, password } = req.body;
 
-  // Sample logic (use your actual logic for authentication here)
-  if (isValidUser(username, password)) {
-    // assuming user authentication is successful
-    // Ideally, you would also set a session or token here to keep the user logged in
-    res.redirect("/dashboard");
-  } else {
-    res.send("Invalid login credentials");
-  }
-})
+
+
 
 module.exports = router;
