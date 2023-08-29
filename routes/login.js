@@ -15,7 +15,8 @@ router.post('/', (req, res) => {
   res.cookie('username', email);
 
   // Redirect to the home page
-  res.redirect('/dashboard');
+  res.redirect('/');
 });
 
 module.exports = router;
+
