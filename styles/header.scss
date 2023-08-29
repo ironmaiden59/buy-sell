@@ -1,8 +1,10 @@
-.navbar-collapse {
+.navbar {
   display: flex;
   justify-content: space-between;
 }
 
-.navbar-brand-center {
-  text-align: center;
+.navbar-brand.mx-auto {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

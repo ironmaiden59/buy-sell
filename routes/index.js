@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
       }
       const username = req.cookies.username || '';
       console.log(cars);
-      res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder, username });
+      res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder, username: username, currentPath: req.path });
     })
     .catch(err => {
       res
