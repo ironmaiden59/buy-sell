@@ -43,6 +43,7 @@ const homePageRoute = require('./routes/index');
 const logoutRoutes = require('./routes/logout');
 const dashboardRoutes = require('./routes/dashboard');
 const postAdRoutes = require('./routes/postAd');
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -56,6 +57,7 @@ app.use('/', homePageRoute);
 app.use('/logout', logoutRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/postAd', postAdRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page

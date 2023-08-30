@@ -8,4 +8,15 @@ router.get('/', (req, res) => {
   res.render('postAd', { username: username, currentPath: '/postAd' });
 });
 
+// New POST route to handle the form submission
+router.post('/', (req, res) => {
+  
+
+  console.log(req.body);  // Log the form data for debugging purposes
+  res.send('Car ad submitted successfully!');
+
+  // Eventually, you'd likely want to redirect the user to another page, 
+  // handle errors, etc., instead of just sending a message.
+});
+
 module.exports = router;
