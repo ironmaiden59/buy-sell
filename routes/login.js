@@ -4,7 +4,7 @@ const db = require('../db/connection');
 
 router.get('/', (req, res) => {
   const username = req.cookies.username || '';
-  res.render("login", { username: username });
+  res.render("login", { username: username, currentPath: req.path });
 });
 
 // POST endpoint for /login
@@ -19,3 +19,4 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
+
