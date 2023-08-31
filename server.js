@@ -13,6 +13,9 @@ app.set('view engine', 'ejs');
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+// const multer = require('multer');
+
+app.use('/image', express.static('image'));
 
 const methodOverride = require('method-override');
 
