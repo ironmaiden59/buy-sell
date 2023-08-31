@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= car.name %></h5>
                         <p class="card-text"><strong>Price: </strong>$<%= car.price %></p>
-                        <form action="/delete/<%= car.id %>" method="POST">
+                        <form action="dashboard/delete/<%= car.id %>" method="POST">
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit">Delete</button>
                         </form>

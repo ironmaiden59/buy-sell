@@ -19,9 +19,7 @@ const insertCar = (car) => {
 };
 
 function deleteCar(id) {
-  return db('newcars')
-         .where({ id })
-         .del();
+  return db.query('DELETE FROM newcars WHERE id = $1', [id]);
 }
 
 module.exports = { getAllCars, insertCar, deleteCar };

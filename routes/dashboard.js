@@ -19,10 +19,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/delete/:id', (req, res) => {
+  
   const carId = req.params.id;
   deleteCar(carId)
       .then(() => {
-          res.status(200).send("Car Deleted Successfully");
+    
+          res.redirect('/dashboard'); // Redirect to the root/dashboard route
       })
       .catch(err => {
           console.error("Error while deleting:", err.message);
