@@ -12,23 +12,18 @@
 <div class="dashboard-container">
 
     <!-- User's Favourite Cars -->
-    <section class="favourites">
-        <h2>Your Favourite Cars</h2>
-
-        <!-- Each car entry -->
+    <% cars.forEach(car => { %>
         <div class="car-entry">
-            <img src="car_image.jpg" alt="Car Model" class="car-image">
+            <img src="<%= car.image_url %>" alt="<%= car.name %>" class="car-image">
             <div class="car-details">
-                <h3 class="car-model">Car Model</h3>
-                <p class="car-year">2023</p>
-                <p class="car-price">$50,000</p>
-                <!-- Delete Option -->
+                <h3 class="car-model"><%= car.name %></h3>
+                <!-- You can add the year and other details similarly -->
+                <p class="car-price">$<%= car.price %></p>
+                <!-- Delete Option (you might want to conditionally show this based on user rights or ownership) -->
                 <button class="delete-car-btn">Delete</button>
             </div>
         </div>
-
-        <!-- You can replicate the .car-entry for other cars -->
-    </section>
+    <% }) %>
 
 </div>
 
