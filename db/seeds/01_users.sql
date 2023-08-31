@@ -4,14 +4,14 @@ VALUES
   (
     'Alice',
     'alicecars@yahoo.ca',
-    'hello',
+    '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.',
     '778-123-4567',
     FALSE
   ),
   (
     'Curtis',
     'curtisplatt@hotmail.com',
-    'password',
+    '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.',
     '905-624-3845',
     TRUE
   );

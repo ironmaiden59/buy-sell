@@ -1,6 +1,6 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #2de91c;
+  background-color: rgb(246, 249, 249);
 }
 
 .container {
@@ -48,8 +48,9 @@ body {
 }
 
 .sort {
-  margin-top: 6em;
+  margin-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 2em;
 }

@@ -12,10 +12,16 @@ const app = express();
 app.set('view engine', 'ejs');
 
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
+const cookieSession = require("cookie-session");
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
+app.use(cookieSession({
+  name: "session",
+  keys: ["key1", "key2"],
+}));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -42,7 +48,7 @@ const carsRoutes = require('./routes/cars');
 const homePageRoute = require('./routes/index');
 const logoutRoutes = require('./routes/logout');
 const dashboardRoutes = require('./routes/dashboard');
-
+const favouritesRoutes = require('./routes/favourites');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -55,11 +61,8 @@ app.use('/', homePageRoute);
 // Note: mount other resources here, using the same pattern above
 app.use('/logout', logoutRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.use('/favourites', favouritesRoutes);
 // Note: mount other resources here, using the same pattern above
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
