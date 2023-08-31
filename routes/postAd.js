@@ -46,8 +46,7 @@ router.post('/', upload.single('carImage'), async (req, res) => {
       price: req.body.carPrice,
       year: req.body.carYear,
       image_url: req.file.path,
-      user_id: 2
-       
+      user_id: 2  
     };
     
     // Save the car data to the database.
