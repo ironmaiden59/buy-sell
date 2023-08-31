@@ -18,4 +18,10 @@ const insertCar = (car) => {
   );
 };
 
-module.exports = { getAllCars, insertCar };
+function deleteCar(id) {
+  return db('newcars')
+         .where({ id })
+         .del();
+}
+
+module.exports = { getAllCars, insertCar, deleteCar };

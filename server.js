@@ -14,8 +14,14 @@ app.set('view engine', 'ejs');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
+const methodOverride = require('method-override');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+
+app.use(methodOverride('_method'));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.

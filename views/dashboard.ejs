@@ -9,23 +9,25 @@
 </head>
 <body>
     <%- include('partials/_header') %>
-<div class="dashboard-container">
-
-    <!-- User's Favourite Cars -->
-    <% cars.forEach(car => { %>
-        <div class="car-entry">
-            <img src="<%= car.image_url %>" alt="<%= car.name %>" class="car-image">
-            <div class="car-details">
-                <h3 class="car-model"><%= car.name %></h3>
-                <!-- You can add the year and other details similarly -->
-                <p class="car-price">$<%= car.price %></p>
-                <!-- Delete Option (you might want to conditionally show this based on user rights or ownership) -->
-                <button class="delete-car-btn">Delete</button>
+    <div class="container mt-5">
+        <div class="row">
+            <% newcars.forEach(car => { %>
+            <div class="col-md-4 mb-3">
+                <div class="card" data-price="<%= car.price %>">
+                    <img class="card-img-top" src="<%= car.image_url %>" alt="<%= car.name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= car.name %></h5>
+                        <p class="card-text"><strong>Price: </strong>$<%= car.price %></p>
+                        <form action="/delete/<%= car.id %>" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
+            <% }) %>
         </div>
-    <% }) %>
-
-</div>
+    </div>
 
 </body>
 </html>
