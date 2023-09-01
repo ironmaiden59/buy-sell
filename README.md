@@ -58,5 +58,5 @@ The following steps are only for _one_ of the group members to perform.
 
 ## Planning Docs
 
-!["Wireframes and Routes"]()
-!["ERD"]()
+!["Wireframes and Routes"](https://github.com/ironmaiden59/buy-sell/blob/master/image/workflow-wireframe.png?raw=true)
+!["ERD"](https://github.com/ironmaiden59/buy-sell/blob/master/image/erd.jpg?raw=true)
