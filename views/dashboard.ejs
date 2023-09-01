@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/dashboard.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/dashboard.css">
 </head>
+
 <body>
-    <%- include('partials/_header') %>
+  <%- include('partials/_header') %>
+
+    <div class="dashboard-title">
+      <h1><strong>Dashboard</strong></h1>
+    </div>
     <div class="container mt-5">
-        <div class="row">
-            <% newcars.forEach(car => { %>
-            <div class="col-md-4 mb-3">
-                <div class="card" data-price="<%= car.price %>">
-                    <img class="card-img-top" src="<%= car.image_url %>" alt="<%= car.name %>">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= car.name %></h5>
-                        <p class="card-text"><strong>Price: </strong>$<%= car.price %></p>
-                        <form action="dashboard/delete/<%= car.id %>" method="POST">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </div>
-                </div>
+      <div class="row">
+        <% newcars.forEach(car=> { %>
+          <div class="col-md-4 mb-3">
+            <div class="card" data-price="<%= car.price %>">
+              <img class="card-img-top" src="<%= car.image_url %>" alt="<%= car.name %>">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= car.name %>
+                </h5>
+                <p class="card-text"><strong>Price: </strong>$<%= car.price %>
+                </p>
+                <form action="dashboard/delete/<%= car.id %>" method="POST">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit">Delete</button>
+                </form>
+                <br>
+                <button>Mark as Sold</button>
+              </div>
             </div>
-            <% }) %>
-        </div>
+          </div>
+          <% }) %>
+      </div>
     </div>
 
 </body>
+
 </html>

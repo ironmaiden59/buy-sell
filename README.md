@@ -42,3 +42,21 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- "bcryptjs": "^2.4.3",
+- "body-parser": "^1.20.2",
+- "chalk": "^2.4.2",
+- "cookie-parser": "^1.4.6",
+- "cookie-session": "^2.0.0",
+- "dotenv": "^2.0.0",
+- "ejs": "^2.6.2",
+- "express": "^4.17.1",
+- "method-override": "^3.0.0",
+- "morgan": "^1.9.1",
+- "multer": "^1.4.5-lts.1",
+- "pg": "^8.5.0",
+- "sass": "^1.35.1"
+
+## Planning Docs
+
+!["Wireframes and Routes"]()
+!["ERD"]()
