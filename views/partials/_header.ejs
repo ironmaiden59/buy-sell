@@ -9,7 +9,7 @@
             <div class="navbar-section-left">
                 <ul class="navbar-nav">
                     <% const path = currentPath || ''; %>
-            
+
                     <!-- Check if username exists (i.e., user is logged in) -->
                     <% if(username && username !== '') { %>
                         <!-- Then, check if the current path isn't the dashboard so we can hide the button on the dashboard page -->
@@ -19,9 +19,9 @@
                             </li>
                         <% } %>
                     <% } %>
-                    
+
                     <li class="nav-item">
-                        <a class="nav-link" id="MyFavorites" href="/myFav"><strong>Favourites</strong></a>
+                        <a class="nav-link" id="Favorites" href="/favourites"><strong>Favourites</strong></a>
                     </li>
                 </ul>
             </div>

@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const favouriteCars = await carQueries.getFavourites(userId);
     console.log('cars', favouriteCars);
     const username = req.session.username || '';
-    res.render('favourites', { favouriteCars, username });
+    res.render('favourites', { favouriteCars, username, currentPath: req.path });
   } catch (error) {
     console.error('Error occurred', error);
     res.status(500).json({ error: 'Error occurred' });
@@ -37,6 +37,7 @@ router.get('/addFavourites/:carId', async (req, res) => {
     console.log(await carQueries.addFavourites(userId, carId));
     res.redirect('/');
   } catch (error) {
+    console.log(error);
     console.error('Car not added to favourites');
     res.status(500).json({ error: 'Error occurred.' });
   }

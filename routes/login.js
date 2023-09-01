@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 
 router.get('/', (req, res) => {
   const username = req.session.username || '';
-  res.render("login", { username });
+  res.render("login", { username: username, currentPath: req.path });
 });
 
 router.post('/', (req, res) => {

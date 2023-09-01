@@ -6,8 +6,8 @@ const db = require('../db/connection');
 const { getAllCars, deleteCar } = require('../db/queries/newcar');
 
 router.get('/', (req, res) => {
-  const username = req.cookies.username || '';
-  
+  const username = req.session.username || '';
+
   getAllCars()
     .then(cars => {
       res.render('dashboard', { username: username, newcars: cars, currentPath: req.path });
@@ -19,11 +19,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/delete/:id', (req, res) => {
-  
+
   const carId = req.params.id;
   deleteCar(carId)
       .then(() => {
-    
+
           res.redirect('/dashboard'); // Redirect to the root/dashboard route
       })
       .catch(err => {

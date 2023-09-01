@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router  = express.Router();
 const db = require('../db/connection');
-const newCarQueries = require('../db/queries/newcar'); 
+const newCarQueries = require('../db/queries/newcar');
 
 // Setting up storage using multer's diskStorage method
 const storage = multer.diskStorage({
@@ -26,14 +26,14 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024 * 5  // Limiting to 5MB
+    fileSize: 1024 * 1024 * 100  // Limiting to 5MB
   },
   fileFilter: fileFilter
 });
 
 
 router.get('/', (req, res) => {
-  const username = req.cookies.username || '';
+  const username = req.session.username || '';
   res.render('postAd', { username: username, currentPath: '/postAd' });
 });
 
@@ -46,9 +46,9 @@ router.post('/', upload.single('carImage'), async (req, res) => {
       price: req.body.carPrice,
       year: req.body.carYear,
       image_url: req.file.path,
-      user_id: 2  
+      user_id: 2
     };
-    
+
     // Save the car data to the database.
     await newCarQueries.insertCar(carData);
 
