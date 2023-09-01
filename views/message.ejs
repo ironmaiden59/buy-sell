@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Message Car Owner</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles/message.css">
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+
+  <div class="container mt-5">
+    <h2>Message Owner of <%= carName %></h2>
+
+    <form action="/message" method="POST">
+        <textarea name="message" rows="4" cols="50" placeholder="Your message here..." required></textarea>
+        <input type="hidden" name="carId" value="<%= carId %>">
+        <br>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
+
+  <!-- Insert bootstrap JS links if needed -->
+</body>
+
+</html>
