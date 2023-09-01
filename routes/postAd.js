@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const router  = express.Router();
+const router = express.Router();
 const db = require('../db/connection');
 const newCarQueries = require('../db/queries/newcar');
 
@@ -26,7 +26,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024 * 100  // Limiting to 5MB
+    fileSize: 1024 * 1024 * 100  // Limiting to 100 MB
   },
   fileFilter: fileFilter
 });

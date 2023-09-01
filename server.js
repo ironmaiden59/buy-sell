@@ -24,8 +24,6 @@ app.use(cookieSession({
   keys: ["key1", "key2"],
 }));
 
-
-
 app.use(methodOverride('_method'));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
