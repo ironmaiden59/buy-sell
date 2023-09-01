@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
       const username = req.session.username || '';
       console.log('username', username);
       console.log(cars);
-      res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder, username });
+      res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder, username: username, currentPath: req.path });
     })
     .catch(err => {
       console.log('error', err);

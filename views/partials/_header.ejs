@@ -1,33 +1,56 @@
+<head>
+  <link rel="stylesheet" href="styles/header.css">
+</head>
+
 <header>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-success">
-    <div class="navbar-collapse d-flex justify-content-start" id="navbarNav">
-      <a class="nav-item nav-link" href="/">
-        <h1><strong>KOOL KARZ</strong></h1>
-      </a>
 
-      <div class="navbar-section-left d-flex">
-        <ul class="navbar-nav">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-success mb-5">
+            <!-- Left section -->
+            <div class="navbar-section-left">
+                <ul class="navbar-nav">
+                    <% const path = currentPath || ''; %>
+            
+                    <!-- Check if username exists (i.e., user is logged in) -->
+                    <% if(username && username !== '') { %>
+                        <!-- Then, check if the current path isn't the dashboard so we can hide the button on the dashboard page -->
+                        <% if (path !== '/dashboard') { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard"><strong>Dashboard</strong></a>
+                            </li>
+                        <% } %>
+                    <% } %>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" id="MyFavorites" href="/myFav"><strong>Favourites</strong></a>
+                    </li>
+                </ul>
+            </div>
+
+      <!-- Center section (Brand) -->
+      <a class="navbar-brand mx-auto" href="/"><strong>KOOL KARZ</strong></a>
+
+      <!-- Right section -->
+<div class="navbar-section-right d-flex align-items-center">
+  <% if(username && username !== '') { %>
+
+    <% const path = currentPath || ''; %>
+    <% if (path !== '/postAd') { %>
+          <a href="/postAd" class="btn btn-link" id="post-car-btn">Post New Car</a>
+      <% } %>
+
+      <span class="navbar-text mr-3">Welcome, <%= username %></span>
+
+      <form action="/logout" method="post" class="d-inline-block ml-2">
+          <button type="submit" class="btn btn-link">Logout</button>
+      </form>
+  <% } else { %>
+      <!-- Display these options only if the user is not logged in -->
+      <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" id="Favourites" href="/favourites">
-              <h4>Favourites</h4>
-            </a>
+              <a class="nav-link" href="/login">Login</a>
           </li>
-        </ul>
-      </div>
-    </div>
-
-    <% if (username) { %>
-      Welcome: <%= username %>
-        <form action="/logout" method="POST">
-          &nbsp;&nbsp;
-          <button type="submit" class="btn btn-outline-dark">Logout</button>
-        </form>
-        <% } else { %>
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/login">
-              <h3>Login</h3>
-            </a>
-            <% } %>
-          </div>
+      </ul>
+  <% } %>
+</div>
   </nav>
 </header>

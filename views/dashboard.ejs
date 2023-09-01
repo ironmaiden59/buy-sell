@@ -9,31 +9,25 @@
 </head>
 <body>
     <%- include('partials/_header') %>
-<div class="dashboard-container">
-
-    <!-- Post New Car Button -->
-    <button id="post-car-btn">Post New Car</button>
-
-    <!-- User's Favourite Cars -->
-    <section class="favourites">
-        <h2>Your Favourite Cars</h2>
-
-        <!-- Each car entry -->
-        <div class="car-entry">
-            <img src="car_image.jpg" alt="Car Model" class="car-image">
-            <div class="car-details">
-                <h3 class="car-model">Car Model</h3>
-                <p class="car-year">2023</p>
-                <p class="car-price">$50,000</p>
-                <!-- Delete Option -->
-                <button class="delete-car-btn">Delete</button>
+    <div class="container mt-5">
+        <div class="row">
+            <% newcars.forEach(car => { %>
+            <div class="col-md-4 mb-3">
+                <div class="card" data-price="<%= car.price %>">
+                    <img class="card-img-top" src="<%= car.image_url %>" alt="<%= car.name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= car.name %></h5>
+                        <p class="card-text"><strong>Price: </strong>$<%= car.price %></p>
+                        <form action="dashboard/delete/<%= car.id %>" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
+            <% }) %>
         </div>
-
-        <!-- You can replicate the .car-entry for other cars -->
-    </section>
-
-</div>
+    </div>
 
 </body>
 </html>
