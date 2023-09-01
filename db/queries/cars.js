@@ -5,6 +5,11 @@ const getCars = () => {
     .then(data => data.rows);
 };
 
+const getCarById = (id) => {
+  return db.query('SELECT * FROM cars WHERE id = $1;', [id])
+    .then(data => data.rows[0]);
+};
+
 const getFavourites = (userId) => {
   const query = `SELECT * FROM favourites
   INNER JOIN cars ON favourites.car_id = cars.id
@@ -24,4 +29,4 @@ const removeFavourites = (userId, carId) => {
   return db.query(query, [userId, carId]);
 };
 
-module.exports = { getCars, getFavourites, addFavourites, removeFavourites };
+module.exports = { getCars, getFavourites, addFavourites, removeFavourites, getCarById };
