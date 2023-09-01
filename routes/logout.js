@@ -1,9 +1,8 @@
 const express = require('express');
-const router  = express.Router();
-
+const router = express.Router();
 
 router.post('/', (req, res) => {
-  res.clearCookie('username');
+  req.session = null;
   res.redirect('/');
 });
 

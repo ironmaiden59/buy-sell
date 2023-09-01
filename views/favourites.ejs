@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Favourites</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/favourites.css">
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+
+    <div class="favourite-title">
+      <h1><strong>Favourites</strong></h1>
+    </div>
+
+    <main style="margin: 1em;">
+      <div class="container mt-5">
+        <div class="row">
+          <% favouriteCars.forEach(function(car) { %>
+            <div class="col-md-4 mb-3">
+              <div class="card" data-price="<%= car.price %>">
+                <img class="card-img-top" src="<%= car.image_url %>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= car.name %>
+                  </h5>
+                  <p class="card-text"><strong>Price: </strong>$<%= car.price %>
+                  </p>
+                  <a href="/cars/<%= car.id %>" class="btn btn-primary">Message Owner</a>
+                  <br>
+                  <br>
+                  <a href="/favourites/removeFavourites/<%= car.id %>" class="btn btn-primary">Remove from
+                    Favourites</a>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+    </main>
+</body>
+
+</html>

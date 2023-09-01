@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS favourites CASCADE;
+
+CREATE TABLE favourites (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  car_id INTEGER REFERENCES cars(id) ON DELETE CASCADE,
+  CONSTRAINT uniqueFavourite UNIQUE (user_id, car_id)
+);

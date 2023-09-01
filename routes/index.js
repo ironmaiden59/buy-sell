@@ -10,15 +10,19 @@ router.get('/', (req, res) => {
   console.log(req.query.sortOrder);
   carQueries.getCars()
     .then(cars => {
-      let sortedCars = cars
+      let sortedCars = [...cars];
       if (req.query.sortOrder === 'ASC') {
         sortedCars = cars.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      } else {
+        sortedCars = cars.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
       }
-      const username = req.cookies.username || '';
+      const username = req.session.username || '';
+      console.log('username', username);
       console.log(cars);
       res.render('index', { cars: sortedCars, sortOrder: req.query.sortOrder, username: username, currentPath: req.path });
     })
     .catch(err => {
+      console.log('error', err);
       res
         .status(500)
         .send(err.message);

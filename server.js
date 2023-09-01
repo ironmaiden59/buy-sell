@@ -12,15 +12,17 @@ const app = express();
 app.set('view engine', 'ejs');
 
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-// const multer = require('multer');
+const cookieSession = require("cookie-session");
 
 app.use('/image', express.static('image'));
 
 const methodOverride = require('method-override');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieSession({
+  name: "session",
+  keys: ["key1", "key2"],
+}));
 
 
 
@@ -51,6 +53,7 @@ const carsRoutes = require('./routes/cars');
 const homePageRoute = require('./routes/index');
 const logoutRoutes = require('./routes/logout');
 const dashboardRoutes = require('./routes/dashboard');
+const favouritesRoutes = require('./routes/favourites');
 const postAdRoutes = require('./routes/postAd');
 
 // Mount all resource routes
@@ -65,13 +68,10 @@ app.use('/', homePageRoute);
 
 app.use('/logout', logoutRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.use('/favourites', favouritesRoutes);
 app.use('/postAd', postAdRoutes);
 
 // Note: mount other resources here, using the same pattern above
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
